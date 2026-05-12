@@ -53,3 +53,4 @@ vim.keymap.set({'n', 'i'}, '<C-s>', function()
 end, { noremap = true, silent = true, desc = 'Save buffer' })
 
 vim.api.nvim_set_keymap("t", "<C-;>", "<C-\\><C-n>", opts)
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
