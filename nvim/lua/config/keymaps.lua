@@ -8,14 +8,10 @@ keymap("n", "<Space>", "", opts)
 
 keymap("n", "<C-i>", "<C-i>", opts)
 
--- not needed since i use tmux
--- -- Better window navigation
--- keymap("n", "<m-h>", "<C-w>h", opts)
--- keymap("n", "<m-j>", "<C-w>j", opts)
--- keymap("n", "<m-k>", "<C-w>k", opts)
--- keymap("n", "<m-l>", "<C-w>l", opts)
--- keymap("n", "<m-tab>", "<c-6>", opts)
 
+
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "moves lines down in visual selection" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "moves lines up in visual selection" })
 keymap("n", "n", "nzz", opts)
 keymap("n", "N", "Nzz", opts)
 keymap("n", "*", "*zz", opts)
