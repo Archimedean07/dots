@@ -1,31 +1,34 @@
 local opt = vim.opt
+local au = vim.api.nvim_create_autocmd
 
 opt.backup = false -- creates a backup file
 opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
-opt.completeopt = { "menuone", "noselect", "fuzzy" }
-vim.opt.pumheight = 10
-vim.opt.pumblend = 10
+opt.completeopt = { "menuone", "noselect", "fuzzy","popup" }
 opt.conceallevel = 0 -- so that `` is visible in markdown files
 opt.winborder = "rounded"
 opt.hlsearch = true -- highlight all matches on previous search pattern
 opt.ignorecase = true -- ignore case in search patterns
-opt.mouse = "a" -- allow the mouse to be used in neovim
 opt.pumheight = 10 -- pop up menu height
 opt.pumblend = 10
-opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
+opt.showmode = false
+opt.autocomplete = false
+opt.complete = "o,.,w,b,u"
+opt.shortmess:prepend("c") -- avoid having to press enter on snippet completion
+au("LspAttach", { command = "setlocal complete=o" })
+
 opt.showtabline = 1 -- always show tabs
 opt.smartcase = true -- smart case
 opt.autoindent = true
 opt.smartindent = true -- make indenting smarter again
-opt.splitbelow = true -- force all horizontal splits to go below current window
-opt.splitright = true -- force all vertical splits to go to the right of current window
 opt.swapfile = false -- creates a swapfile
 opt.termguicolors = true -- set term gui colors (most terminals support this)
 opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
 opt.undofile = true -- enable persistent undo
-opt.updatetime = 100 -- faster completion (4000ms default)
+opt.updatetime = 50 -- faster completion (4000ms default)
 opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
+vim.opt.undofile = true
 opt.backspace = "indent,eol,start"
 opt.expandtab = true -- convert tabs to spaces
 opt.shiftwidth = 2 -- the number of spaces inserted for each indentation
