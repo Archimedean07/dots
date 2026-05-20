@@ -51,3 +51,7 @@ end, { noremap = true, silent = true, desc = 'Save buffer' })
 
 vim.api.nvim_set_keymap("t", "<C-;>", "<C-\\><C-n>", opts)
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+-- change cwd 
+vim.keymap.set('n', '<leader>cd', function()
+  vim.cmd('cd ' .. vim.fn.expand('%:p:h'))
+end)

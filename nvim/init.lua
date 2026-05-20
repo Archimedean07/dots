@@ -12,7 +12,7 @@ require("vim._core.ui2").enable({
 require("config.options")
 require("config.keymaps")
 vim.pack.add({
-
+	{ src = "https://github.com/nvim-mini/mini.icons", name = "mini.icons" },
 	{ src = "dmtrKovalenko/fff.nvim" },
 	{ src = "stevearc/oil.nvim" },
 	{ src = "nvim-treesitter/nvim-treesitter" },
