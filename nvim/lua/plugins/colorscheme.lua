@@ -5,3 +5,6 @@ if not ok then
 end
 
 vim.cmd.colorscheme("gruber-darker")
+-- fix underlines of links
+vim.api.nvim_set_hl(0, '@markup.link.label.tsx', { underline = false })
+vim.api.nvim_set_hl(0, '@markup.link.label', { underline = false })
